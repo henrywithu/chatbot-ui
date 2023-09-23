@@ -1,9 +1,11 @@
-version: '3.6'
+version: '3.8'
 
 services:
-  chatgpt:
-    build: .
+  poggers:
+    image: moogpt:20230912
+    container_name: moogpt
+    restart: unless-stopped
+    env_file:
+      - .env
     ports:
-      - 3000:3000
-    environment:
-      - 'OPENAI_API_KEY='
+      - 127.0.0.1:20004:3000
